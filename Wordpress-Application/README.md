@@ -125,6 +125,13 @@ cc8a525a6502   mysql:5.7                    "docker-entrypoint.s…"   4 minutes
 
 ```
 
+![image](https://user-images.githubusercontent.com/58165365/144333009-cdaded7c-2a3c-4d86-adbd-411a11c369fc.png)
+
+![image](https://user-images.githubusercontent.com/58165365/144333071-2c940f20-06fb-4ad2-a5fb-96111a91b4f7.png)
+
+![image](https://user-images.githubusercontent.com/58165365/144333115-09d905ad-f28e-45ef-976b-bf0be00964ac.png)
+
+
 `docker-compose down`
 
 ```bash
