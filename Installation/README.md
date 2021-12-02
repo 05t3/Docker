@@ -9,6 +9,8 @@ Feel free to explore the above and compare the difference. Let me explain about 
 > Docker uses a client-server architecture. The Docker _client_ talks to the Docker _daemon_, which does the heavy lifting of building, running, and distributing your Docker containers. The Docker client and daemon can run on the same system, or you can connect a Docker client to a remote Docker daemon. The Docker client and daemon communicate using a **REST API**, over UNIX sockets or a network interface. Another Docker client is **Docker Compose**, that lets you work with applications consisting of a set of containers.
 > Source: _[Docker Documentation](https://docs.docker.com/get-started/overview/)_
 
+![image](https://user-images.githubusercontent.com/58165365/144400225-5feef0f8-5afe-461e-a01d-363b9199bac8.png)
+
 If you had previously installed docker on your system and you happened to encounter some problems for some reason, you can follow along but first you will need to run the following command in order to uninstall older versions, for example `docker`, `docker.io`, or `docker-engine`
 
 ```bash
