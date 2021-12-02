@@ -1,13 +1,23 @@
 # Running Wordpress on Docker
 
+Today i'm going to be showing you how easy it is to have wordpress up and running using Docker Compose in an isolated environment built with docker containers. If you are not conversant with Docker Compose, i would suggest going through Docker's official [documentation](https://docs.docker.com/compose/gettingstarted/) of the same.
+
+However, before we get started, you need to have `Compose` installed. If you have not yet installed it, you can do so by running the following commands
+
 `sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose`
 
 `sudo chmod +x /usr/local/bin/docker-compose`
+
+You can test is the installation was successful by checking the version of Compose installed as shown below:
 
 ```bash
 root@docker:/var/www/wordpress# docker-compose --version
 docker-compose version 1.29.2, build 5becea4c
 ```
+
+We are then going to create a directory called **wordpress** in `/var/www/` where will add resources necessary to build our image. In this case, we need to create a file called `docker-compose.yml` . You can also use `.yaml` extension.
+
+_See the snippet attached below_ 👇🏾
 
 ```bash
 docker@docker:~/Desktop$ cd /var/www/
@@ -59,7 +69,7 @@ You can then proceed to build the project as follows:
 
 `docker-compose up -d`
 
-The command above basically runs in a detached mode, oulls the needed Docker Images from the docker registry and starts the wordpress and database containers.
+The command above basically runs in detached mode, pulls the needed Docker Images from the docker registry since we dont have them locally on our system and starts the wordpress and database containers.
 
 ```bash
 root@docker:/var/www/wordpress# docker-compose up -d
@@ -125,14 +135,19 @@ cc8a525a6502   mysql:5.7                    "docker-entrypoint.s…"   4 minutes
 
 ```
 
+In order to access our wordpress site, we can access it on port 8000 since we binded it to port 80 on the 0.0.0.0.
+If we fire up our browser, we can reach it on `http://machine_ip:8000` as shown in the screenshots below.
+
+Select your prefered language and hit `**Continue**`
 ![image](https://user-images.githubusercontent.com/58165365/144333009-cdaded7c-2a3c-4d86-adbd-411a11c369fc.png)
 
+Provide Site Title, Username, password and an email and start the installation process which is very fast.
 ![image](https://user-images.githubusercontent.com/58165365/144333071-2c940f20-06fb-4ad2-a5fb-96111a91b4f7.png)
 
+After the installation completes, simply login using the credentials configuredin the previous step and you should have access to the dashboard. Easy, right?😃💁🏼‍♂️
 ![image](https://user-images.githubusercontent.com/58165365/144333115-09d905ad-f28e-45ef-976b-bf0be00964ac.png)
 
-
-`docker-compose down`
+If you want to shutdown the wordpress site, simply run `docker-compose down` which removes the containers created , default network created but preserve the WordPress database.
 
 ```bash
 root@docker:/var/www/wordpress# docker-compose down
