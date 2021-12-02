@@ -120,12 +120,16 @@ Creating wordpress_db_1 ... done
 Creating wordpress_wordpress_1 ... done
 ```
 
+If you want to confirm if the docker images were pulled successfully, simply run `docker images` command as shown below:
+
 ```bash
 root@docker:/var/www/wordpress# docker images
 REPOSITORY                                      TAG            IMAGE ID       CREATED         SIZE
 wordpress                                       latest         e3a452c0a154   13 days ago     616MB
 mysql                                           5.7            8b43c6af2ad0   2 weeks ago     448MB
 ```
+
+Since we also spin up the containers in detached mode and want to confirm if they are up and running, we can check the status by running `docker ps` command:
 
 ```bash
 root@docker:/var/www/wordpress# docker ps
@@ -147,7 +151,7 @@ Provide Site Title, Username, password and an email and start the installation p
 After the installation completes, simply login using the credentials configuredin the previous step and you should have access to the dashboard. Easy, right?😃💁🏼‍♂️
 ![image](https://user-images.githubusercontent.com/58165365/144333115-09d905ad-f28e-45ef-976b-bf0be00964ac.png)
 
-If you want to shutdown the wordpress site, simply run `docker-compose down` which removes the containers created , default network created but preserve the WordPress database.
+If you want to shutdown the wordpress site, simply run `docker-compose down` which removes the containers created , default network created but preserve the WordPress database. You can also confirm the containers are not running by running `docker ps` command.
 
 ```bash
 root@docker:/var/www/wordpress# docker-compose down
